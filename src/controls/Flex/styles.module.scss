@@ -1,0 +1,18 @@
+.Flex {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex: 0 0 auto;
+  display: flex;
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.inline {
+    display: inline-flex;
+  }
+
+  &.vertical {
+    flex-direction: column;
+  }
+}

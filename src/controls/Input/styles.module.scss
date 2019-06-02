@@ -1,0 +1,16 @@
+.Input {
+  background-color: #333;
+  font-family: inherit;
+  border-radius: 2px;
+  text-align: right;
+  padding: 3px 6px;
+  font-size: 22px;
+  line-height: 1;
+  color: #fff;
+  border: none;
+  width: 100%;
+
+  &.isDisabled {
+    pointer-events: none;
+  }
+}

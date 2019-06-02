@@ -1,0 +1,9 @@
+/* @flow strict */
+
+type Styles = {
+  [string]: string,
+}
+
+const styles: Styles = {}
+
+export default styles

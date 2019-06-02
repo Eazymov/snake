@@ -1,0 +1,26 @@
+[ignore]
+
+[include]
+
+[libs]
+
+[lints]
+sketchy-number=error
+sketchy-null-bool=error
+sketchy-null-number=error
+sketchy-null-string=error
+untyped-type-import=error
+unnecessary-invariant=error
+unsafe-getters-setters=error
+unnecessary-optional-chain=error
+
+[options]
+include_warnings=true
+
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/src/SCSSModule.js'
+
+[strict]
+unclear-type
+untyped-import
+sketchy-null-mixed
+deprecated-utility
