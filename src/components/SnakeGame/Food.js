@@ -67,9 +67,7 @@ export class Food {
     })
 
     items.forEach(cell => {
-      board.drawCell({
-        x: cell.x,
-        y: cell.y,
+      board.drawCell(cell, {
         lineWidth: 2,
         backgroundColor: 'red',
         borderColor: 'white',

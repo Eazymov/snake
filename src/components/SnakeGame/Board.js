@@ -12,8 +12,6 @@ export type Cell = {|
 |}
 
 type CellConfig = {|
-  x: number,
-  y: number,
   lineWidth?: number,
   borderColor?: string,
   backgroundColor: string,
@@ -52,21 +50,17 @@ export class Board {
     context.fillRect(0, 0, pxSize, pxSize)
   }
 
-  isOut(x: number, y: number) {
+  isOut(cell: Cell) {
+    const { x, y } = cell
     const max = this.size - 1
     const min = 0
 
     return x > max || y > max || x < min || y < min
   }
 
-  drawCell(config: CellConfig) {
-    const {
-      x,
-      y,
-      lineWidth,
-      backgroundColor,
-      borderColor = backgroundColor,
-    } = config
+  drawCell(cell: Cell, config: CellConfig) {
+    const { x, y } = cell
+    const { lineWidth, backgroundColor, borderColor = backgroundColor } = config
     const { $canvas, cellSize } = this
     const context = $canvas.getContext('2d')
 

@@ -37,7 +37,7 @@ function isReversedDirection(a: Direction, b: Direction) {
   return a.dx === -b.dx || a.dy === -b.dy
 }
 
-function createPart(board: Board) {
+function createHead(board: Board): Cell {
   const mid = Math.floor(board.size / 2)
 
   return {
@@ -64,7 +64,7 @@ export class Snake {
     this.onFeed = onFeed
     this.bordered = bordered
     this.onDeadlock = onDeadlock
-    this.parts.push(createPart(board))
+    this.parts.push(createHead(board))
   }
 
   getLength() {
@@ -109,7 +109,7 @@ export class Snake {
   reset() {
     this.direction = initialDirection
     this.isChangingDirection = false
-    this.parts = [createPart(this.board)]
+    this.parts = [createHead(this.board)]
   }
 
   correctCell(cell: Cell) {
@@ -150,7 +150,7 @@ export class Snake {
       y: newY,
     }
 
-    if (this.bordered && board.isOut(newX, newY)) {
+    if (this.bordered && board.isOut(newHead)) {
       this.onDeadlock()
 
       return
@@ -181,9 +181,7 @@ export class Snake {
   drawPart = (cell: Cell) => {
     const { board } = this
 
-    board.drawCell({
-      x: cell.x,
-      y: cell.y,
+    board.drawCell(cell, {
       backgroundColor: '#FFFFFF',
       borderColor: '#000000',
     })
